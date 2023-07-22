@@ -9,7 +9,7 @@ public class ScannerDemo {
      * Unlike a JOptionPane it is also capable of taking in many data types
      * besides String.
      */
-
+	
     public static void main(String[] args) {
         /*
          * 1. Create an object of the Scanner class.
@@ -24,9 +24,11 @@ public class ScannerDemo {
          * Eclipse's console. This may change depending on the environment where
          * are running your program or the input/output stream you are using.
          */
+    		
+        	
 
-        
-        
+        	Scanner sn = new Scanner(System.in);
+
         /*
          * 2. Use a syso to ask the user for their name and then use the Scanner
          * created in step 1 to take in the user's name as a String.
@@ -41,9 +43,9 @@ public class ScannerDemo {
          * Note: Don't forget to save the results of next() or nextLine() into a
          * String variable.
          */
-
-        
-        
+        	System.out.println("What is your name fellow?");   
+        	String name = sn.nextLine();
+     
         /*
          * 3. Ask the user for their age in the console. Then use the Scanner to
          * take their age as an int and save it into an int variable.
@@ -51,8 +53,9 @@ public class ScannerDemo {
          * See if you can find the scanner method that does this without relying
          * on Integer.parseInt().
          */
+        System.out.println("How old are you fellow");
+        int age = sn.nextInt();
 
-        
         
         /*
          * 4.) Try asking the user for another piece of information that's not a
@@ -61,9 +64,12 @@ public class ScannerDemo {
          * Note: There are many methods similar to the one you used for int that
          * are capable of taking in primitive data types.
          */
-
+        System.out.println("You are more than 5 foot tall. True or False?");
+        boolean height = sn.nextBoolean();
         // 5.) Print the user's data to the console nicely formatted.
-
+        System.out.println("So your name is " +name + "?");
+        System.out.println("And your age is " + age + "?");
+        System.out.println("And whether you are taller than 5 foot is " + height + ", right?");
         
         
         /*
@@ -72,7 +78,7 @@ public class ScannerDemo {
          * Note: When using a Scanner with the System.in input stream in larger
          * programs only close the scanner when your program is completely done.
          */
-
+        sn.close();
     }
 
 }
