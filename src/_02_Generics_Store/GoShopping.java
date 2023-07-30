@@ -46,6 +46,6 @@ public class GoShopping {
 		// HINT: There are 3 lines of code to edit
 				
 		// 10. Run the code. Does it work?
-		/* YesÂ */
+		/* Yes */
 	}
 }
