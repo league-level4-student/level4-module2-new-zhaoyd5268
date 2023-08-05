@@ -49,10 +49,10 @@ public class ConsoleStore {
 
 		boolean checkout = false;
 		do {
-			System.out.println("Welcome to the store. You can buy cheese($12), fruit($15), clothes(20),"
+			System.out.println("You can buy cheese($12), fruit($15), clothes(20),"
 					+ " or toys($25). Which do you pick? Your current balance is " + c.money + ". After"
 					+ " adding an item to cart, you can remove items.");
-			item = sn.nextLine();
+			item = sn.next();
 			item = item.equalsIgnoreCase("cheese") ? c.addToCart(item)
 					: item.equalsIgnoreCase("fruit") ? c.addToCart(item)
 							: item.equalsIgnoreCase("clothes") ? c.addToCart(item) : c.addToCart("toys");
@@ -64,8 +64,21 @@ public class ConsoleStore {
 			Boolean removeornot = sn.nextBoolean();
 			if (removeornot == true) {
 				System.out.println("Which item? Please state however you added them");
-				String itemtoremove = sn.nextLine();
+				String itemtoremove = sn.next();
 				c.removeItem(itemtoremove);
+				c.money = itemtoremove.equalsIgnoreCase("cheese") ? c.money + 12
+						: itemtoremove.equalsIgnoreCase("fruit") ? c.money + 15
+								: itemtoremove.equalsIgnoreCase("clothes") ? c.money + 20 : c.money + 25;
+				System.out.println("Your balance is " + c.money);
+			} else {
+				System.out.println("Do you want to check out? true/false");
+				Boolean b = sn.nextBoolean();
+				if (b == true) {
+					System.out.println("You purchased " + c.cart + ". Your total spendings is " + (50-c.money) + " dollars.");
+					checkout = true;
+				} else if (b == false ){
+					checkout = false;
+				}
 			}
 		} while (checkout == false);
 	}
